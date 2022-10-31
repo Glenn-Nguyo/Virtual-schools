@@ -93,4 +93,4 @@ const CreateStudent = () => {
   );
 }
 
-export default UpdateStudent
+export default CreateStudent

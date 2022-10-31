@@ -15,7 +15,9 @@ function TextExample() {
       </Card.Body>
     </Card>
     </div>
-  );
+
+
+  )
 }
 
 export default TextExample;
