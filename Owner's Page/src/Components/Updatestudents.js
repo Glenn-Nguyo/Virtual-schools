@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const UpdateStudent = () => {
     const [student, setStudent] = useState({
@@ -16,7 +17,7 @@ const UpdateStudent = () => {
         setStudent({ ...student, [e.target.name]: e.target.value });   
 
 
-function handleSubmit(e) {
+ function handleSubmit(e) {
     e.preventDefault()
     fetch("https://virtualschools.herokuapp.com/students", {
       method: "PATCH",
@@ -89,4 +90,4 @@ function handleSubmit(e) {
       
       }
     
-    export default CreateStudent
+    export default UpdateStudent 
