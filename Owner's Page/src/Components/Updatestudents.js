@@ -17,7 +17,7 @@ const UpdateStudent = () => {
         setStudent({ ...student, [e.target.name]: e.target.value });   
 
 
- function handleSubmit(e) {
+ function handleUpdateStudents(e) {
     e.preventDefault()
     fetch("https://virtualschools.herokuapp.com/students", {
       method: "PATCH",
