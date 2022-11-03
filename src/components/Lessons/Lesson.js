@@ -1,22 +1,12 @@
 import React from 'react';
 
-export default function Lesson({lessonInfo}){
-    // const {id, topic,course_id} = lessonObject
-
-    // function handleDeleteClick() {
-    //   fetch(`https://trendy1-music-librabry.herokuapp.com/songs/${lessonInfo.id}`, {
-    //     method: "DELETE",
-    //   })
-    //     .then((r) => r.json())
-    //     .then(() => onDelete(lessonInfo));
-    // }
-
+export default function Lesson({lessonInfo, item}){    
     return (
     <div>
       
       <table  className="table table-primary">
         <thead>
-          <tr>
+          <tr >
             <th scope="col">Id</th>
             <th scope="col">topic</th>
             <th scope="col">Course_Id</th>                        
@@ -27,9 +17,9 @@ export default function Lesson({lessonInfo}){
                 return (
                   <> 
                   <tr className="table-secondary">
-                    <td >{item.id}</td>
-                    <td >{item.topic}</td>
-                    <td >{item.course_id}</td>            
+                    <td> {item.id}</td>
+                    <td> {item.topic}</td>
+                    <td> {item.course_id}</td>            
                   </tr>
                   </> )     
 

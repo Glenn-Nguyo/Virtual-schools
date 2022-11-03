@@ -8,8 +8,9 @@ import Courses from "./components/Courses-section/Courses";
 import School from "./components/School/School";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Educators from "./components/Educators/Educators";
+// import Educators from "./components/Educators/Educators";
 import Owner from "./components/Owners/Owner";
+import Educator from "./pages/Educator";
 // import CreateOwner from "./Owner's Page/src/Components/CreateOwner";
 
 function App() {
@@ -22,10 +23,12 @@ function App() {
         <Route path="/login" element={<Auth />} />
         <Route path="/schools" element={<School />} />
         <Route path="/courses" element={<Courses />} />
-        <Route path="/educators" element={<Educators />} />
+        {/* <Route path="/educators" element={<Educators />} /> */}
+        <Route path="/educators" element={<Educator />} />
         <Route path="/admin" element={<Owner/>}/>
       </Routes>
       <Footer />
+     
     </BrowserRouter>
   )
 }

@@ -27,23 +27,31 @@ export default function Login(){
                   Accept: "application/json",
                 },
             body: JSON.stringify(ownerLogin) 
+        }).then((res)=>{
+          if (res.ok) {
+            res.json().then((res)=> {
+            localStorage.setItem("jwt", JSON.stringify(res))})
+            navigate("/admin")
+          } else {
+            res.json().then((err) => (setError(err.message)))
+          }
         })
-        .then((r) => {
-            if (r.ok) {
-                navigate("/admin") 
-            } else {
-                r.json().then((err) => (setError(err.message)))
-            }
-        })
-        .then((data) => {
-          // "jwt", JSON.stringify(newUser.jwt)
-                      // save the token to localStorage for future access
-                      localStorage.setItem("jwt", JSON.stringify(ownerLogin.jwt))
-                      // localStorage.setItem("jwt", data.jwt);
-                      // save the owner somewhere (in state!) to log the owner in
-                      setOwnerLogin(data.ownerLogin);
-                      //console.log(data.owner)newUser
-        })        
+        // .then((r) => {
+        //     if (r.ok) {
+        //         navigate("/admin") 
+        //     } else {
+        //         r.json().then((err) => (setError(err.message)))
+        //     }
+        // })
+        // .then((data) => {
+        //   // "jwt", JSON.stringify(newUser.jwt)
+        //               // save the token to localStorage for future access
+        //               localStorage.setItem("jwt", JSON.stringify(ownerLogin.jwt))
+        //               // localStorage.setItem("jwt", data.jwt);
+        //               // save the owner somewhere (in state!) to log the owner in
+        //               setOwnerLogin(data.ownerLogin);
+        //               //console.log(data.owner)newUser
+        // })        
     }
     
     return (

@@ -1,6 +1,8 @@
 import React, { useState, } from "react"
+import LoginEducator from "../Educators/LoginEducator"
 import CreateOwner from "../Owners/CreateOwner"
 import Login from "../Owners/Login"
+import StudentLogin from "../StudentLogin"
 
  function Auth (props) {
   let [authMode, setAuthMode] = useState("signin")
@@ -13,6 +15,8 @@ import Login from "../Owners/Login"
     return (
       <div className="Auth-form-container">
          <Login/>
+         <LoginEducator/>
+         <StudentLogin/>
               <div className="text-center">
               Dont have an account yet?{" "} <br/>
               <span className="link-primary" onClick={changeAuthMode}>

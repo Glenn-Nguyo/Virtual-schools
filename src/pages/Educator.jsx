@@ -1,21 +1,18 @@
+import DeleteResource from "../components/Educators/DeleteResource";
+import EditResource from "../components/Educators/EditResource";
+import LessonList from "../components/Lessons/LessonsList";
+import NewLesson from "../components/Lessons/NewLesson";
 
 
 
 const Educator = () => {
     return (
-      <Fragment>
-        <HeroSection />
-        <CompanySection />
-        <AboutUs />
-        <Courses />
-        <ChooseUs />
-        <Features />
-        <FreeCourse />
-        <Testimonials />
-        <Newsletter />
-        <CreateStudent/>
+      <div>        
         <LessonList/>
-      </Fragment>
+        <NewLesson/>
+        {/* <DeleteResource/>
+        <EditResource/> */}
+      </div>
     );
   };
   
