@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const UpdateEducator = () => {
   const [educator, setEducator] = useState({
+    id: "",
     name: "",
     email: "",
     password: "",
@@ -13,7 +14,7 @@ const UpdateEducator = () => {
   const [errors, setErrors] = useState([]);
   function handleChange(e) {
     setEducator({ ...educator, [e.target.name]: e.target.value });
-
+  }
     function handleSubmit(e) {
       e.preventDefault();
       fetch("https://virtualschools.herokuapp.com/educators", {
@@ -93,6 +94,5 @@ const UpdateEducator = () => {
       </div>
     );
   }
-};
 
 export default UpdateEducator;

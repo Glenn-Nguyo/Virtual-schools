@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import './src/Owner.css'
 
 const CreateEducator = () => {
     const [educator, setEducator] = useState({
@@ -12,7 +13,7 @@ const CreateEducator = () => {
     });
 
     const[errors, setErrors] = useState([])
-    const navigate = useHistory()
+    const navigate = useNavigate()
     function handleChange(e) {        
         setEducator({ ...educator, [e.target.name]: e.target.value });        
     }
@@ -28,7 +29,7 @@ const CreateEducator = () => {
           body: JSON.stringify(educator),
         }).then((r) => {
           if (r.ok) {
-            navigate.replace("/educators");
+            navigate("/educators");
           } else {
             r.json()
             .then((err) => setErrors(err.errors));
@@ -64,6 +65,8 @@ const CreateEducator = () => {
         placeholder="Enter Educator Password"
 				name="password"
 				onChange={handleChange}
+        required
+        pattern=".{8,}"
 				 />
          <input type="text" 
 				defaultValue={educator.school_id}

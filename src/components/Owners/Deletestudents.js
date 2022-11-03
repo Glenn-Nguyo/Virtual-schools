@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
-import UpdateSchools from './Updateschools';
-    const DeleteSchools = ({data, handleDeleteSchools, handleUpdateSchools}) => {
+
+    import React, { useState } from 'react';
+    import UpdateStudents from './Updatestudents';
+    const StudentCard = ({data, handleDeleteStudent, handleUpdateStudents}) => {
 
       const [isUpdating, setIsUpdating] = useState(false);
       const [visible, setVisible] = useState(true)
-      const {name,school_id,course_id,owner_id} = data
+      const {id,name,email,password,school_id,course_id,owner_id} = data
     
       function handleDelete(){
-        fetch (`https://virtualschools.herokuapp.com/schools`, {
+        fetch (`https://virtualschools.herokuapp.com/students`, {
           method: 'DELETE',
         })
         .then((r) => r.json())
-        .then((deleteSchools) => handleDeleteSchools(deleteSchools))
+        .then((deletedStudent) => handleDeleteStudent(deletedStudent))
       }
       return (
         <div className='card'>
             {visible?
               (<div> { isUpdating ? (
-                <UpdateSchools
+                <UpdateStudents
                 data={data}
                 setIsUpdating={isUpdating}
-                handleUpdateSchools={handleUpdateSchools}
+                handleUpdateStudents={handleUpdateStudents}
                 />
                 ): (
                 <>
@@ -31,12 +32,22 @@ import UpdateSchools from './Updateschools';
                   </div>
                 </>
                )} </div>):(
-                 <div className='schools-card'>
-                   <h2 className='res-info' onClick={() => setVisible(!visible)}  >schools Info</h2>
+                 <div className='students-card'>
+                   <h2 className='res-info' onClick={() => setVisible(!visible)}  >Students Info</h2>
                  </div>
                )
                }
               </div>
               )
             }
-    export default DeleteSchools;
+    export default StudentCard;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

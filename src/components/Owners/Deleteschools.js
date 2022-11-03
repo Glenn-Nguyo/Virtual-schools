@@ -1,27 +1,26 @@
-
-    import React, { useState } from 'react';
-    import UpdateStudents from './Updatestudents';
-    const StudentCard = ({data, handleDeleteStudent, handleUpdateStudents}) => {
+import React, { useState } from 'react';
+import UpdateSchools from './Updateschools';
+    const DeleteSchools = ({data, handleDeleteSchools, handleUpdateSchools}) => {
 
       const [isUpdating, setIsUpdating] = useState(false);
       const [visible, setVisible] = useState(true)
-      const {name,email,password,school_id,course_id,owner_id} = data
+      const {id,name,school_id,course_id,owner_id} = data
     
       function handleDelete(){
-        fetch (`https://virtualschools.herokuapp.com/students`, {
+        fetch (`https://virtualschools.herokuapp.com/schools`, {
           method: 'DELETE',
         })
         .then((r) => r.json())
-        .then((deletedStudent) => handleDeleteStudent(deletedStudent))
+        .then((deleteSchools) => handleDeleteSchools(deleteSchools))
       }
       return (
         <div className='card'>
             {visible?
               (<div> { isUpdating ? (
-                <UpdateStudents
+                <UpdateSchools
                 data={data}
                 setIsUpdating={isUpdating}
-                handleUpdateStudents={handleUpdateStudents}
+                handleUpdateSchools={handleUpdateSchools}
                 />
                 ): (
                 <>
@@ -32,22 +31,12 @@
                   </div>
                 </>
                )} </div>):(
-                 <div className='students-card'>
-                   <h2 className='res-info' onClick={() => setVisible(!visible)}  >Students Info</h2>
+                 <div className='schools-card'>
+                   <h2 className='res-info' onClick={() => setVisible(!visible)}  >schools Info</h2>
                  </div>
                )
                }
               </div>
               )
             }
-    export default StudentCard;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    export default DeleteSchools;

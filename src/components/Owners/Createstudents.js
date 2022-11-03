@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const CreateStudent = () => {
     const [student, setStudent] = useState({
+      id: "",
       name: "",
       email: "",
       password: "",
@@ -12,7 +13,7 @@ const CreateStudent = () => {
     });
 
     const[errors, setErrors] = useState([])
-    const navigate = useHistory()
+    const navigate = useNavigate()
     function handleChange(e) {        
         setStudent({ ...student, [e.target.name]: e.target.value });        
     }
@@ -28,7 +29,7 @@ const CreateStudent = () => {
           body: JSON.stringify(student),
         }).then((r) => {
           if (r.ok) {
-            navigate.replace("/schools");
+            navigate("/schools");
           } else {
             r.json()
             .then((err) => setErrors(err.errors));

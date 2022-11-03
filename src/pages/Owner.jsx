@@ -1,15 +1,10 @@
-import Educator from "../components/Educators/Educators";
-import School from "../components/School/School";
-import Students from "./Student";
+import NavbarComp from "../components/Owners/NavbarComp";
+
 
 
 const Owner = () => {
     return (
-      <Fragment>
-        <Educator />
-        <Students/>
-        <School/>
-      </Fragment>
+   <NavbarComp />
     );
   };
   
