@@ -11,10 +11,7 @@ const NavBar = () => {
             <Navbar.Brand href="#home">E-Masomo</Navbar.Brand>
 
             <Button className='btn' variant="info">Log out</Button>{' '}
-
-
             </Container>
-
         </Navbar>
       
     </>
